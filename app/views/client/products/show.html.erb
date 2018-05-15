@@ -1,0 +1,7 @@
+<h2><%= @product["name"] %></h2>
+<h3>Price: <%= @product["price"] %></h3>
+<h4>Description:<%= @product["description"] %></h4>
+<img src="<%= @product['image_url'] %>" alt="">
+<br>
+<a href="/client/products/ <%= @product['id'] %>/edit">Edit</a>
+<a href="/client/products/ <%= @product['id'] %>" data-method="delete">Delete</a>
