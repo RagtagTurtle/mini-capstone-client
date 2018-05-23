@@ -1,3 +1,26 @@
+<ul>
+  <li>
+    Sort By
+    <ul>
+      <li><a href="/client/products?sort_by=price">Price Low to High</a></li>
+      <li><a href="/client/products?sort_by=price&&sort_order=desc">Price High to Low</a></li>
+      <li><a href="/client/products?sort_by=name">Name A to Z</a></li>
+      <li><a href="/client/products?sort_by=name&&sort_order=desc">Name Z to A</a></li>
+
+    </ul>
+  </li>
+</ul>
+
+
+
+
+
+<%= form_tag "/client/products", method: :get do %>
+  <input type="text" name="search" placeholder="Search Cars!">
+  <input type="submit" name="whatisup">
+<% end %>
+
+
 <% @products.each do |product| %>
 <h2><a href="/client/products/<%= product["id"] %>"><%= product["name"] %></a></h2>
 
