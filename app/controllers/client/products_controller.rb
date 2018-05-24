@@ -23,7 +23,8 @@ class Client::ProductsController < ApplicationController
                     name: params[:name],
                     price: params[:price],
                     description: params[:description],
-                    image_url: params[:image_url]
+                    image_url: params[:image_url],
+                    supplier_id: params[:supplier_id]
                     }
     response = Unirest.post("http://localhost:3000/api/products",
                             parameters: client_params
@@ -52,7 +53,8 @@ class Client::ProductsController < ApplicationController
                       name: params[:name],
                       price: params[:price],
                       description: params[:description],
-                      image_url: params[:image_url]
+                      image_url: params[:image_url],
+                      supplier_id: params[:supplier_id]
                       }
     response = Unirest.patch(
                             "http://localhost:3000/api/products/#{params[:id]}",
