@@ -3,7 +3,8 @@ class Client::ProductsController < ApplicationController
     client_params = {
                       search: params[:search],
                       sort_by: params[:sort_by],
-                      sort_order: params[:sort_order]
+                      sort_order: params[:sort_order],
+                      category: params[:category]
                       }
 
     response = Unirest.get(
