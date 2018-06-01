@@ -1,8 +1,4 @@
 class Client::OrdersController < ApplicationController
-
-  def new
-    render 'new.html.erb'
-  end
   
   def create
     client_params = {
