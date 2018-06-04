@@ -2,13 +2,15 @@
 
 <h3>Customer #: <%= @order['user']['email']%></h3>
 
-<h2>Product Name: <%= @order['product']['name'] %></h2>
-
-<img src="<%= @order['product']['images'][0]['image_url_1']  %>">
-
-
-<h2>Price: <%= @order['product']['formatted']['price'] %></h2>
-<h2>Quantity: <%= @order['quantity'] %></h2>
+<ul>
+<% @order['carted_products'].each do |carted_product| %>
+  <li>
+    <%= carted_product["product"]["name"] %> - 
+    <%= carted_product["product"]["price"] %> x
+    <%= carted_product["quantity"] %> 
+  </li>
+<% end %>
+</ul>
 
 <h2>Subtotal: <%= @order['formatted']['subtotal'] %></h2>
 <h2>Tax: <%= @order['formatted']['tax'] %></h2>

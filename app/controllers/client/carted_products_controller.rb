@@ -1,14 +1,8 @@
 class Client::CartedProductsController < ApplicationController
 
   def index
-    client_params = {
-                      carted_products_id: params[:id],
-                      product_id: params[:product_id],
-                      quantity: params[:quantity]
-                      }
     response = Unirest.get(
-                            "http://localhost:3000/api/carted_products",
-                            parameters: client_params
+                            "http://localhost:3000/api/carted_products"
                             )
     @carted_products = response.body
     render 'index.html.erb'
@@ -28,9 +22,9 @@ class Client::CartedProductsController < ApplicationController
     redirect_to "/client/carted_products"
   end
 
-  def show
-    response = Unirest.get("http://localhost:3000/api/carted_products/#{:id}")
-    @carted_product = response.body
-    render 'show.html.erb'
+  def destroy
+    carted_product_id = params[:id]
+    response = Unirest.delete("http://localhost:3000/api/carted_products/#{carted_product_id}")
+    redirect_to "/client/carted_products"
   end
 end

@@ -1,4 +1,13 @@
-<h2>Carted Product ID: <%= @carted_products['id'] %></h2>
-<h2>Product ID: <%= @carted_products['product']['id'] %></h2>
-<h2>Product Names: <%= @carted_products['product']['name'] %></h2>
-<h2>Quantity: <%= @carted_products['quantity'] %></h2>
+<h1>Your Cart</h1>
+
+<% @carted_products.each do |carted_product| %>
+  <p>
+    <%= carted_product["product"]["name"] %> - 
+    <%= carted_product["product"]["price"] %> x
+    <%= carted_product["quantity"] %> 
+    <a href="/client/carted_products/<%= carted_product['id'] %>" data-method="delete">Remove</a>
+  </p>
+<% end %>
+
+<a href="/client/orders" data-method="post">Create Order</a>
+
