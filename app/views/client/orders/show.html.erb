@@ -3,13 +3,13 @@
 <h3>Customer #: <%= @order['user']['email']%></h3>
 
 <ul>
-<% @order['carted_products'].each do |carted_product| %>
-  <li>
-    <%= carted_product["product"]["name"] %> - 
-    <%= carted_product["product"]["price"] %> x
-    <%= carted_product["quantity"] %> 
-  </li>
-<% end %>
+  <% @order['carted_products'].each do |carted_product| %>
+    <li>
+      <%= carted_product["product"]["name"] %> - 
+      <%= carted_product["product"]["price"] %> x
+      <%= carted_product["quantity"] %> 
+    </li>
+  <% end %>
 </ul>
 
 <h2>Subtotal: <%= @order['formatted']['subtotal'] %></h2>

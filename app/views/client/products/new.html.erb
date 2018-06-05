@@ -1,16 +1,24 @@
+<% if @errors %>
+  <ul>
+    <% @errors.each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <form action="/client/products" method="post">
 <%= form_tag "/client/products", method: :post do %>
   <div>
-    Name: <input type="text" name="name">
+    Name: <input type="text" name="name" value="<%= @product['name'] %>">
   </div>
   <div>
-    Price: <input type="text" name="price">
+    Price: <input type="text" name="price" value="<%= @product['price'] %>">
   </div>
   <div>
-    Description: <input type="text" name="description">
+    Description: <input type="text" name="description" value="<%= @product['description'] %>">
   </div>
   <div>
-    Supplier ID: <input type="text" name="supplier_id">
+    Supplier ID: <input type="text" name="supplier_id" value="<%= @product['supplier_id'] %>">
   </div>
   <input type="submit" value="Create Supercar">
 </form>
